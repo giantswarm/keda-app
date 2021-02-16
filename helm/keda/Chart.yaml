@@ -3,7 +3,7 @@ appVersion: 2.1.0
 description: A Helm chart for KEDA (Kubernetes Event-driven Autoscaling)
 engine: gotpl
 home: https://github.com/giantswarm/keda-app
-icon: TODO
+icon: https://raw.githubusercontent.com/kedacore/keda/main/images/logos/keda-word-white.png
 name: keda
 sources:
 - https://github.com/kedacore/charts/
