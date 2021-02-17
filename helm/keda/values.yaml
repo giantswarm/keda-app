@@ -4,14 +4,14 @@
 
 image:
   keda:
-    repository: docker.io/kedacore/keda
+    repository: quay.io/giantswarm/kedacore-keda
     # Allows people to override tag if they don't want to use the app version
     tag:
   metricsApiServer:
-    repository: docker.io/kedacore/keda-metrics-apiserver
+    repository: quay.io/giantswarm/kedacore-keda-metrics-apiserver
     # Allows people to override tag if they don't want to use the app version
     tag:
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 watchNamespace: ""
 
@@ -104,7 +104,7 @@ resources: {}
 
 nodeSelector: {}
 
-tolerations: []
+tolerations: {}
 
 affinity: {}
   # podAntiAffinity:

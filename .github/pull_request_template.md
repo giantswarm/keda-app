@@ -40,3 +40,4 @@ Changelog must always be updated.
 
 - [ ] Update changelog in CHANGELOG.md.
 - [ ] Make sure `values.yaml` and `values.schema.json` are valid.
+- [ ] Add the `crd-install` mechanism if this PR (1) changes CRD definitions and (2) the `crd-install` mechanism is not in place
