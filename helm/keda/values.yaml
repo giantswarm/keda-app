@@ -134,10 +134,10 @@ prometheus:
     podMonitor:
       # Enables PodMonitor creation for the Prometheus Operator
       enabled: false
-      interval:
-      scrapeTimeout:
-      namespace:
-      additionalLabels: {}
+    #   interval:
+    #   scrapeTimeout:
+    #   namespace:
+    #   additionalLabels: {}
   operator:
     enabled: false
     port: 8080
@@ -145,7 +145,7 @@ prometheus:
     podMonitor:
       # Enables PodMonitor creation for the Prometheus Operator
       enabled: false
-      interval:
-      scrapeTimeout:
-      namespace:
-      additionalLabels: {}
+    #   interval:
+    #   scrapeTimeout:
+    #   namespace:
+    #   additionalLabels: {}

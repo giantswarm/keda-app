@@ -934,25 +934,19 @@
             },
             "podMonitor": {
               "type": "object",
-              "required": [
-                "enabled",
-                "interval",
-                "scrapeTimeout",
-                "namespace",
-                "additionalLabels"
-              ],
+              "required": ["enabled"],
               "properties": {
                 "enabled": {
                   "type": "boolean"
                 },
                 "interval": {
-                  "type": ["null", "string"]
+                  "type": "string"
                 },
                 "scrapeTimeout": {
-                  "type": ["null", "string"]
+                  "type": "string"
                 },
                 "namespace": {
-                  "type": ["null", "string"]
+                  "type": "string"
                 },
                 "additionalLabels": {
                   "type": "object",
@@ -981,25 +975,19 @@
             },
             "podMonitor": {
               "type": "object",
-              "required": [
-                "enabled",
-                "interval",
-                "scrapeTimeout",
-                "namespace",
-                "additionalLabels"
-              ],
+              "required": ["enabled"],
               "properties": {
                 "enabled": {
                   "type": "boolean"
                 },
                 "interval": {
-                  "type": ["null", "string"]
+                  "type": "string"
                 },
                 "scrapeTimeout": {
-                  "type": ["null", "string"]
+                  "type": "string"
                 },
                 "namespace": {
-                  "type": ["null", "string"]
+                  "type": "string"
                 },
                 "additionalLabels": {
                   "type": "object",
