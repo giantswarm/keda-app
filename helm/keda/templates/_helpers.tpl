@@ -1,38 +1,27 @@
 {{/* vim: set filetype=mustache: */}}
-{{/*
-Expand the name of the chart.
-*/}}
-{{- define "name" -}}
-{{- .Chart.Name | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
 
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "chart" -}}
+{{- define "keda.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
-Selector labels
+Generate basic labels
 */}}
-{{- define "labels.selector" -}}
-app.kubernetes.io/name: {{ include "name" . | quote }}
-app.kubernetes.io/instance: {{ .Release.Name | quote }}
-{{- end -}}
-
-{{/*
-Common labels
-*/}}
-{{- define "labels.common" -}}
-{{ include "labels.selector" . }}
-app.giantswarm.io/branch: {{ .Chart.Annotations.branch | replace "#" "-" | replace "/" "-" | replace "." "-" | trunc 63 | trimSuffix "-" | quote }}
-application.giantswarm.io/commit: {{ .Chart.Annotations.commit | quote }}
-application.kubernetes.io/managed-by: {{ .Release.Service | quote }}
-application.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- define "keda.labels" }}
+helm.sh/chart: {{ include "keda.chart" . }}
+app.kubernetes.io/component: operator
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/part-of: {{ .Values.operator.name }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion }}
+{{- end }}
+giantswarm.io/service-type: managed
 application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
-giantswarm.io/managed-by: {{ .Release.Name | quote }}
-giantswarm.io/service-type: {{ .Values.serviceType }}
-helm.sh/chart: {{ include "chart" . | quote }}
-{{- end -}}
-
+{{- if .Values.additionalLabels }}
+{{ toYaml .Values.additionalLabels }}
+{{- end }}
+{{- end }}

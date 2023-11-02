@@ -1,15 +1,13 @@
-apiVersion: v2
-appVersion: 0.0.1
-name: keda
-description: Event-based autoscaler for workloads on Kubernetes
-home: https://github.com/giantswarm/keda-app
-
-# If you have an icon/logo, you should add it to https://github.com/giantswarm/web-assets
-# and set the final URL as a value here and uncomment.
-#icon: https://s.giantswarm.io/app-icons/example/1/light.svg
-
-sources:
-- https://github.com/giantswarm/keda-upstream
-version: 0.0.0-dev
 annotations:
   application.giantswarm.io/team: turtles
+  ui.giantswarm.io/logo: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
+apiVersion: v2
+name: keda
+description: Event-based autoscaler for workloads on Kubernetes
+kubeVersion: ">=v1.24.0-0"
+version: 0.1.0
+appVersion: 2.10.1
+home: https://github.com/giantswarm/keda-app
+icon: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
+sources:
+  - https://github.com/kedacore/keda
