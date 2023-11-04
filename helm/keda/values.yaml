@@ -4,25 +4,32 @@
 
 global:
   image:
+    # -- Global image registry of KEDA components
     registry: docker.io
 
 image:
   keda:
-    # TODO override repository to be able to change it
-    registry: ghcr.io
+    # -- Image registry of KEDA operator
+    registry: null
+    # -- Image name of KEDA operator
     repository: giantswarm/keda
-    # Allows people to override tag if they don't want to use the app version
-    tag:
+    # -- Image tag of KEDA operator. Optional, given app version of Helm chart is used by default
+    tag: ""
   metricsApiServer:
-    registry: ghcr.io
+    # -- Image registry of KEDA Metrics API Server
+    registry: null
+    # -- Image name of KEDA Metrics API Server
     repository: giantswarm/keda-metrics-apiserver
-    # Allows people to override tag if they don't want to use the app version
-    tag:
+    # -- Image tag of KEDA Metrics API Server. Optional, given app version of Helm chart is used by default
+    tag: ""
   webhooks:
-    registry: ghcr.io
+    # -- Image registry of KEDA admission-webhooks
+    registry: null
+    # -- Image name of KEDA admission-webhooks
     repository: giantswarm/keda-admission-webhooks
-    # Allows people to override tag if they don't want to use the app version
-    tag:
+    # -- Image tag of KEDA admission-webhooks . Optional, given app version of Helm chart is used by default
+    tag: ""
+  # -- Image pullPolicy for all KEDA components
   pullPolicy: Always
 
 # Kubernetes cluster domain
@@ -102,6 +109,7 @@ upgradeStrategy:
       maxSurge: 1
 
 networkPolicy:
+  enabled: true
   flavor: cilium
 
 podDisruptionBudget:
@@ -380,7 +388,10 @@ prometheus:
       targetPort:
       interval:
       scrapeTimeout:
-      relabellings: []
+      relabellings:
+        # Add app label.
+        - targetLabel: app
+          replacement: keda
       additionalLabels: {}
     podMonitor:
       # Enables PodMonitor creation for the Prometheus Operator
@@ -403,7 +414,10 @@ prometheus:
       targetPort:
       interval:
       scrapeTimeout:
-      relabellings: []
+      relabellings:
+        # Add app label.
+        - targetLabel: app
+          replacement: keda
       additionalLabels: {}
     podMonitor:
       # Enables PodMonitor creation for the Prometheus Operator
@@ -440,7 +454,10 @@ prometheus:
       targetPort:
       interval:
       scrapeTimeout:
-      relabellings: []
+      relabellings:
+        # Add app label.
+        - targetLabel: app
+          replacement: keda
       additionalLabels: {}
     prometheusRules:
       # Enables PrometheusRules creation for the Prometheus Operator

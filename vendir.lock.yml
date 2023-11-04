@@ -2,10 +2,8 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'chore: Release KEDA Chart v2.10.2 (KEDA v2.10.1) (#428)'
-      sha: 58bfc12d7010a29eef4111408a323ca987fce4f2
-      tags:
-      - v2.10.2
+      commitTitle: relabel app label...
+      sha: 45f5aaacf1a2034304dce7885f5ccedf1ad7059b
     path: keda
   path: helm
 kind: LockConfig
