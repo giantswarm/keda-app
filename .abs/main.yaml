@@ -1,4 +1,4 @@
 replace-chart-version-with-git: true
 generate-metadata: true
-chart-dir: ./helm/keda-app
+chart-dir: ./helm/keda
 destination: ./build

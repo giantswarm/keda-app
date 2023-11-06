@@ -1,0 +1,9 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: relabel app label...
+      sha: 45f5aaacf1a2034304dce7885f5ccedf1ad7059b
+    path: keda
+  path: helm
+kind: LockConfig

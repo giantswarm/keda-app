@@ -1,0 +1,15 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+- path: helm
+  contents:
+  - path: keda
+    git:
+      url: https://github.com/giantswarm/keda-upstream
+      ## We use version 2.10.x because of kubernetes compatibility reasons
+      ref: giantswarm/v2.10.x
+      depth: 1
+    newRootPath: keda
+    ignorePaths:
+    - .kube-linter.yaml
+    - values.schema.json
