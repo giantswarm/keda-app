@@ -1,5 +1,5 @@
 annotations:
-  application.giantswarm.io/team: turtles
+  application.giantswarm.io/team: atlas
   ui.giantswarm.io/logo: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
 apiVersion: v2
 name: keda
