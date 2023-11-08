@@ -210,12 +210,12 @@ Kubernetes: `>=v1.24.0-0`
 | upgradeStrategy.webhooks.type | string | `"RollingUpdate"` |  |
 | verticalPodAutoscaler.keda.cpu.maxAllowed | int | `2` |  |
 | verticalPodAutoscaler.keda.cpu.minAllowed | string | `"20m"` |  |
-| verticalPodAutoscaler.keda.enabled | bool | `false` |  |
+| verticalPodAutoscaler.keda.enabled | bool | `true` |  |
 | verticalPodAutoscaler.keda.memory.maxAllowed | string | `"2Gi"` |  |
 | verticalPodAutoscaler.keda.memory.minAllowed | string | `"200Mi"` |  |
 | verticalPodAutoscaler.metricsApiServer.cpu.maxAllowed | int | `2` |  |
 | verticalPodAutoscaler.metricsApiServer.cpu.minAllowed | string | `"20m"` |  |
-| verticalPodAutoscaler.metricsApiServer.enabled | bool | `false` |  |
+| verticalPodAutoscaler.metricsApiServer.enabled | bool | `true` |  |
 | verticalPodAutoscaler.metricsApiServer.memory.maxAllowed | string | `"2Gi"` |  |
 | verticalPodAutoscaler.metricsApiServer.memory.minAllowed | string | `"200Mi"` |  |
 | volumes.keda.extraVolumeMounts | list | `[]` |  |

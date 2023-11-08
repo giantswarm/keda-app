@@ -2,8 +2,8 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'Merge pull request #1 from giantswarm/add-vpa-old-version...'
-      sha: 9410be2f38969877ab5e1e31fe765f9f483bbb2c
+      commitTitle: 'Merge pull request #3 from giantswarm/enable-vpa-by-default...'
+      sha: 5d43fd31875f3715d8a4484abd44c97c04dbc498
     path: keda
   path: helm
 kind: LockConfig
