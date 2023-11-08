@@ -117,8 +117,7 @@ Kubernetes: `>=v1.24.0-0`
 | prometheus.metricServer.serviceMonitor.jobLabel | string | `nil` |  |
 | prometheus.metricServer.serviceMonitor.podTargetLabels | list | `[]` |  |
 | prometheus.metricServer.serviceMonitor.port | string | `"metrics"` |  |
-| prometheus.metricServer.serviceMonitor.relabellings[0].replacement | string | `"keda"` |  |
-| prometheus.metricServer.serviceMonitor.relabellings[0].targetLabel | string | `"app"` |  |
+| prometheus.metricServer.serviceMonitor.relabellings | list | `[]` |  |
 | prometheus.metricServer.serviceMonitor.scrapeTimeout | string | `nil` |  |
 | prometheus.metricServer.serviceMonitor.targetLabels | list | `[]` |  |
 | prometheus.metricServer.serviceMonitor.targetPort | string | `nil` |  |
@@ -140,8 +139,7 @@ Kubernetes: `>=v1.24.0-0`
 | prometheus.operator.serviceMonitor.jobLabel | string | `nil` |  |
 | prometheus.operator.serviceMonitor.podTargetLabels | list | `[]` |  |
 | prometheus.operator.serviceMonitor.port | string | `"metrics"` |  |
-| prometheus.operator.serviceMonitor.relabellings[0].replacement | string | `"keda"` |  |
-| prometheus.operator.serviceMonitor.relabellings[0].targetLabel | string | `"app"` |  |
+| prometheus.operator.serviceMonitor.relabellings | list | `[]` |  |
 | prometheus.operator.serviceMonitor.scrapeTimeout | string | `nil` |  |
 | prometheus.operator.serviceMonitor.targetLabels | list | `[]` |  |
 | prometheus.operator.serviceMonitor.targetPort | string | `nil` |  |
@@ -157,8 +155,7 @@ Kubernetes: `>=v1.24.0-0`
 | prometheus.webhooks.serviceMonitor.jobLabel | string | `nil` |  |
 | prometheus.webhooks.serviceMonitor.podTargetLabels | list | `[]` |  |
 | prometheus.webhooks.serviceMonitor.port | string | `"metrics"` |  |
-| prometheus.webhooks.serviceMonitor.relabellings[0].replacement | string | `"keda"` |  |
-| prometheus.webhooks.serviceMonitor.relabellings[0].targetLabel | string | `"app"` |  |
+| prometheus.webhooks.serviceMonitor.relabellings | list | `[]` |  |
 | prometheus.webhooks.serviceMonitor.scrapeTimeout | string | `nil` |  |
 | prometheus.webhooks.serviceMonitor.targetLabels | list | `[]` |  |
 | prometheus.webhooks.serviceMonitor.targetPort | string | `nil` |  |
