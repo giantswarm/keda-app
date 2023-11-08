@@ -1134,6 +1134,71 @@
                 }
             }
         },
+        "verticalPodAutoscaler": {
+            "type": "object",
+            "properties": {
+                "keda": {
+                    "type": "object",
+                    "properties": {
+                        "cpu": {
+                            "type": "object",
+                            "properties": {
+                                "maxAllowed": {
+                                    "type": "integer"
+                                },
+                                "minAllowed": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "memory": {
+                            "type": "object",
+                            "properties": {
+                                "maxAllowed": {
+                                    "type": "string"
+                                },
+                                "minAllowed": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "metricsApiServer": {
+                    "type": "object",
+                    "properties": {
+                        "cpu": {
+                            "type": "object",
+                            "properties": {
+                                "maxAllowed": {
+                                    "type": "integer"
+                                },
+                                "minAllowed": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "memory": {
+                            "type": "object",
+                            "properties": {
+                                "maxAllowed": {
+                                    "type": "string"
+                                },
+                                "minAllowed": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "volumes": {
             "type": "object",
             "properties": {
