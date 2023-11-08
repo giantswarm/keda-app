@@ -1,6 +1,6 @@
 # keda
 
-![Version: 0.1.x](https://img.shields.io/badge/Version-0.1.x-informational?style=flat-square) ![AppVersion: 2.10.1](https://img.shields.io/badge/AppVersion-2.10.1-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![AppVersion: 2.10.1](https://img.shields.io/badge/AppVersion-2.10.1-informational?style=flat-square)
 
 Event-based autoscaler for workloads on Kubernetes
 
@@ -117,7 +117,8 @@ Kubernetes: `>=v1.24.0-0`
 | prometheus.metricServer.serviceMonitor.jobLabel | string | `nil` |  |
 | prometheus.metricServer.serviceMonitor.podTargetLabels | list | `[]` |  |
 | prometheus.metricServer.serviceMonitor.port | string | `"metrics"` |  |
-| prometheus.metricServer.serviceMonitor.relabellings | list | `[]` |  |
+| prometheus.metricServer.serviceMonitor.relabellings[0].replacement | string | `"keda"` |  |
+| prometheus.metricServer.serviceMonitor.relabellings[0].targetLabel | string | `"app"` |  |
 | prometheus.metricServer.serviceMonitor.scrapeTimeout | string | `nil` |  |
 | prometheus.metricServer.serviceMonitor.targetLabels | list | `[]` |  |
 | prometheus.metricServer.serviceMonitor.targetPort | string | `nil` |  |
@@ -139,7 +140,8 @@ Kubernetes: `>=v1.24.0-0`
 | prometheus.operator.serviceMonitor.jobLabel | string | `nil` |  |
 | prometheus.operator.serviceMonitor.podTargetLabels | list | `[]` |  |
 | prometheus.operator.serviceMonitor.port | string | `"metrics"` |  |
-| prometheus.operator.serviceMonitor.relabellings | list | `[]` |  |
+| prometheus.operator.serviceMonitor.relabellings[0].replacement | string | `"keda"` |  |
+| prometheus.operator.serviceMonitor.relabellings[0].targetLabel | string | `"app"` |  |
 | prometheus.operator.serviceMonitor.scrapeTimeout | string | `nil` |  |
 | prometheus.operator.serviceMonitor.targetLabels | list | `[]` |  |
 | prometheus.operator.serviceMonitor.targetPort | string | `nil` |  |
@@ -155,7 +157,8 @@ Kubernetes: `>=v1.24.0-0`
 | prometheus.webhooks.serviceMonitor.jobLabel | string | `nil` |  |
 | prometheus.webhooks.serviceMonitor.podTargetLabels | list | `[]` |  |
 | prometheus.webhooks.serviceMonitor.port | string | `"metrics"` |  |
-| prometheus.webhooks.serviceMonitor.relabellings | list | `[]` |  |
+| prometheus.webhooks.serviceMonitor.relabellings[0].replacement | string | `"keda"` |  |
+| prometheus.webhooks.serviceMonitor.relabellings[0].targetLabel | string | `"app"` |  |
 | prometheus.webhooks.serviceMonitor.scrapeTimeout | string | `nil` |  |
 | prometheus.webhooks.serviceMonitor.targetLabels | list | `[]` |  |
 | prometheus.webhooks.serviceMonitor.targetPort | string | `nil` |  |
@@ -205,6 +208,16 @@ Kubernetes: `>=v1.24.0-0`
 | upgradeStrategy.webhooks.rollingUpdate.maxSurge | int | `1` |  |
 | upgradeStrategy.webhooks.rollingUpdate.maxUnavailable | int | `1` |  |
 | upgradeStrategy.webhooks.type | string | `"RollingUpdate"` |  |
+| verticalPodAutoscaler.keda.cpu.maxAllowed | int | `2` |  |
+| verticalPodAutoscaler.keda.cpu.minAllowed | string | `"20m"` |  |
+| verticalPodAutoscaler.keda.enabled | bool | `false` |  |
+| verticalPodAutoscaler.keda.memory.maxAllowed | string | `"2Gi"` |  |
+| verticalPodAutoscaler.keda.memory.minAllowed | string | `"200Mi"` |  |
+| verticalPodAutoscaler.metricsApiServer.cpu.maxAllowed | int | `2` |  |
+| verticalPodAutoscaler.metricsApiServer.cpu.minAllowed | string | `"20m"` |  |
+| verticalPodAutoscaler.metricsApiServer.enabled | bool | `false` |  |
+| verticalPodAutoscaler.metricsApiServer.memory.maxAllowed | string | `"2Gi"` |  |
+| verticalPodAutoscaler.metricsApiServer.memory.minAllowed | string | `"200Mi"` |  |
 | volumes.keda.extraVolumeMounts | list | `[]` |  |
 | volumes.keda.extraVolumes | list | `[]` |  |
 | volumes.metricsApiServer.extraVolumeMounts | list | `[]` |  |
