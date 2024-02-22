@@ -1,6 +1,6 @@
 # keda
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![AppVersion: 2.10.1](https://img.shields.io/badge/AppVersion-2.10.1-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![AppVersion: 2.10.1](https://img.shields.io/badge/AppVersion-2.10.1-informational?style=flat-square)
 
 Event-based autoscaler for workloads on Kubernetes
 
@@ -33,7 +33,7 @@ Kubernetes: `>=v1.24.0-0`
 | env | string | `nil` |  |
 | extraArgs.keda | object | `{}` |  |
 | extraArgs.metricsAdapter | object | `{}` |  |
-| global.image.registry | string | `"docker.io"` | Global image registry of KEDA components |
+| global.image.registry | string | `"gsoci.azurecr.io"` | Global image registry of KEDA components |
 | grpcTLSCertsSecret | string | `""` |  |
 | hashiCorpVaultTLS | string | `""` |  |
 | http.keepAlive.enabled | bool | `true` |  |
@@ -61,8 +61,9 @@ Kubernetes: `>=v1.24.0-0`
 | metricsServer.dnsPolicy | string | `"ClusterFirst"` |  |
 | metricsServer.replicaCount | int | `1` |  |
 | metricsServer.useHostNetwork | bool | `false` |  |
-| networkPolicy.enabled | bool | `true` |  |
-| networkPolicy.flavor | string | `"cilium"` |  |
+| networkPolicy.cilium | object | `{"operator":{"extraEgressRules":[]}}` | Allow use of extra egress rules for cilium network policies |
+| networkPolicy.enabled | bool | `true` | Enable network policies |
+| networkPolicy.flavor | string | `"cilium"` | Flavor of the network policies (cilium) |
 | nodeSelector | object | `{}` |  |
 | operator.affinity | object | `{"podAntiAffinity":{"requiredDuringSchedulingIgnoredDuringExecution":[{"labelSelector":{"matchExpressions":[{"key":"app","operator":"In","values":["keda-operator"]}]},"topologyKey":"kubernetes.io/hostname"}]}}` | Affinity for pod scheduling https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/ for KEDA operator. Takes precedence over the `affinity` field |
 | operator.name | string | `"keda-operator"` |  |

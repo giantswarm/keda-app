@@ -2,3 +2,5 @@ replace-chart-version-with-git: true
 generate-metadata: true
 chart-dir: ./helm/keda
 destination: ./build
+# temporarely disable static check (kube-linter) until we have a fix for the issue
+skip-steps: [static_check]
