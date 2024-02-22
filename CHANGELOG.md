@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.0] - 2024-02-22
 
+### Added
+
+- Allow extra egress policies to be configured in the keda-operator ciliumnetworkpolicy.
+
 ## [0.2.0] - 2023-11-08
 
 ### Added
