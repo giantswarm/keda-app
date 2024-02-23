@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix pod disruption budget to allow disruptions when replica count is 1.
+
 ## [0.3.0] - 2024-02-22
 
 ### Added
