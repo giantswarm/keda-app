@@ -311,6 +311,19 @@
         "networkPolicy": {
             "type": "object",
             "properties": {
+                "cilium": {
+                    "type": "object",
+                    "properties": {
+                        "operator": {
+                            "type": "object",
+                            "properties": {
+                                "extraEgressRules": {
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    }
+                },
                 "enabled": {
                     "type": "boolean"
                 },
