@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade app and chart to upstream version 2.11.2 to support kubernetes 1.25 to 1.27.
+
 ## [0.3.0] - 2024-02-22
 
 ### Added

@@ -54,6 +54,9 @@
                 }
             }
         },
+        "asciiArt": {
+            "type": "boolean"
+        },
         "certificates": {
             "type": "object",
             "properties": {
@@ -97,7 +100,7 @@
             }
         },
         "env": {
-            "type": "null"
+            "type": "array"
         },
         "extraArgs": {
             "type": "object",
@@ -109,6 +112,9 @@
                     "type": "object"
                 }
             }
+        },
+        "extraObjects": {
+            "type": "array"
         },
         "global": {
             "type": "object",
@@ -422,28 +428,13 @@
             "type": "object",
             "properties": {
                 "metricServer": {
-                    "type": "object",
-                    "properties": {
-                        "minAvailable": {
-                            "type": "integer"
-                        }
-                    }
+                    "type": "object"
                 },
                 "operator": {
-                    "type": "object",
-                    "properties": {
-                        "minAvailable": {
-                            "type": "integer"
-                        }
-                    }
+                    "type": "object"
                 },
                 "webhooks": {
-                    "type": "object",
-                    "properties": {
-                        "minAvailable": {
-                            "type": "integer"
-                        }
-                    }
+                    "type": "object"
                 }
             }
         },
@@ -497,6 +488,17 @@
                         },
                         "tokenExpiration": {
                             "type": "integer"
+                        }
+                    }
+                },
+                "gcp": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "gcpIAMServiceAccount": {
+                            "type": "string"
                         }
                     }
                 }
@@ -584,9 +586,6 @@
                         "enabled": {
                             "type": "boolean"
                         },
-                        "path": {
-                            "type": "string"
-                        },
                         "podMonitor": {
                             "type": "object",
                             "properties": {
@@ -597,16 +596,16 @@
                                     "type": "boolean"
                                 },
                                 "interval": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "namespace": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "relabelings": {
                                     "type": "array"
                                 },
                                 "scrapeTimeout": {
-                                    "type": "null"
+                                    "type": "string"
                                 }
                             }
                         },
@@ -626,10 +625,10 @@
                                     "type": "boolean"
                                 },
                                 "interval": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "jobLabel": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "podTargetLabels": {
                                     "type": "array"
@@ -637,7 +636,7 @@
                                 "port": {
                                     "type": "string"
                                 },
-                                "relabellings": {
+                                "relabelings": {
                                     "type": "array",
                                     "items": {
                                         "type": "object",
@@ -651,14 +650,17 @@
                                         }
                                     }
                                 },
+                                "relabellings": {
+                                    "type": "array"
+                                },
                                 "scrapeTimeout": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "targetLabels": {
                                     "type": "array"
                                 },
                                 "targetPort": {
-                                    "type": "null"
+                                    "type": "string"
                                 }
                             }
                         }
@@ -680,16 +682,16 @@
                                     "type": "boolean"
                                 },
                                 "interval": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "namespace": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "relabelings": {
                                     "type": "array"
                                 },
                                 "scrapeTimeout": {
-                                    "type": "null"
+                                    "type": "string"
                                 }
                             }
                         },
@@ -709,7 +711,7 @@
                                     "type": "boolean"
                                 },
                                 "namespace": {
-                                    "type": "null"
+                                    "type": "string"
                                 }
                             }
                         },
@@ -723,10 +725,10 @@
                                     "type": "boolean"
                                 },
                                 "interval": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "jobLabel": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "podTargetLabels": {
                                     "type": "array"
@@ -734,7 +736,7 @@
                                 "port": {
                                     "type": "string"
                                 },
-                                "relabellings": {
+                                "relabelings": {
                                     "type": "array",
                                     "items": {
                                         "type": "object",
@@ -748,14 +750,17 @@
                                         }
                                     }
                                 },
+                                "relabellings": {
+                                    "type": "array"
+                                },
                                 "scrapeTimeout": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "targetLabels": {
                                     "type": "array"
                                 },
                                 "targetPort": {
-                                    "type": "null"
+                                    "type": "string"
                                 }
                             }
                         }
@@ -783,7 +788,7 @@
                                     "type": "boolean"
                                 },
                                 "namespace": {
-                                    "type": "null"
+                                    "type": "string"
                                 }
                             }
                         },
@@ -797,10 +802,10 @@
                                     "type": "boolean"
                                 },
                                 "interval": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "jobLabel": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "podTargetLabels": {
                                     "type": "array"
@@ -808,7 +813,7 @@
                                 "port": {
                                     "type": "string"
                                 },
-                                "relabellings": {
+                                "relabelings": {
                                     "type": "array",
                                     "items": {
                                         "type": "object",
@@ -822,14 +827,17 @@
                                         }
                                     }
                                 },
+                                "relabellings": {
+                                    "type": "array"
+                                },
                                 "scrapeTimeout": {
-                                    "type": "null"
+                                    "type": "string"
                                 },
                                 "targetLabels": {
                                     "type": "array"
                                 },
                                 "targetPort": {
-                                    "type": "null"
+                                    "type": "string"
                                 }
                             }
                         }
@@ -840,6 +848,9 @@
         "rbac": {
             "type": "object",
             "properties": {
+                "aggregateToDefaultRoles": {
+                    "type": "boolean"
+                },
                 "create": {
                     "type": "boolean"
                 }
@@ -1032,12 +1043,6 @@
                 "annotations": {
                     "type": "object"
                 },
-                "portHttp": {
-                    "type": "integer"
-                },
-                "portHttpTarget": {
-                    "type": "integer"
-                },
                 "portHttps": {
                     "type": "integer"
                 },
@@ -1070,7 +1075,18 @@
             "type": "array"
         },
         "topologySpreadConstraints": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "metricsServer": {
+                    "type": "array"
+                },
+                "operator": {
+                    "type": "array"
+                },
+                "webhooks": {
+                    "type": "array"
+                }
+            }
         },
         "upgradeStrategy": {
             "type": "object",
@@ -1295,11 +1311,20 @@
                 "failurePolicy": {
                     "type": "string"
                 },
+                "healthProbePort": {
+                    "type": "integer"
+                },
                 "name": {
+                    "type": "string"
+                },
+                "port": {
                     "type": "string"
                 },
                 "replicaCount": {
                     "type": "integer"
+                },
+                "useHostNetwork": {
+                    "type": "boolean"
                 }
             }
         }

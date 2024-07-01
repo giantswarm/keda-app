@@ -2,8 +2,8 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'Merge pull request #9 from giantswarm/add-cnp-egress-to-2.10...'
-      sha: 593c97d037cfe039f3b3ba90365fcefd1d02f41f
+      commitTitle: 'Merge pull request #10 from giantswarm/upgrade-to-v2.11.2...'
+      sha: 490c538e555c3084c2e9bdc0a26b3c929b2ac97f
     path: keda
   path: helm
 kind: LockConfig
