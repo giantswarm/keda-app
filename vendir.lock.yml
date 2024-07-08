@@ -2,8 +2,8 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: Fix PDBs...
-      sha: 9acc5d204f034298bc18608290ac29b29a129392
+      commitTitle: 'Merge pull request #10 from giantswarm/upgrade-to-v2.11.2...'
+      sha: 490c538e555c3084c2e9bdc0a26b3c929b2ac97f
     path: keda
   path: helm
 kind: LockConfig
