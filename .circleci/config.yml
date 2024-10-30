@@ -1,4 +1,5 @@
 version: 2.1
+
 orbs:
   architect: giantswarm/architect@5.11.0
 
@@ -6,13 +7,17 @@ workflows:
   package-and-push-chart-on-tag:
     jobs:
       - architect/push-to-app-catalog:
-          context: "architect"
-          executor: "app-build-suite" # uncomment this if you want automatic metadata generation and helm chart linting
-          name: "push to giantswarm-catalog"
-          app_catalog: "giantswarm-catalog"
-          app_catalog_test: "giantswarm-test-catalog"
-          chart: "keda"
+          context: architect
+          executor: app-build-suite # uncomment this if you want automatic metadata generation and helm chart linting
+          name: push to giantswarm-catalog
+          app_catalog: giantswarm-catalog
+          app_catalog_test: giantswarm-test-catalog
+          chart: keda
           # Trigger job on git tag.
           filters:
             tags:
               only: /^v.*/
+            branches:
+              ignore:
+                - main
+                - master
