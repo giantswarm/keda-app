@@ -2,8 +2,10 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'Merge pull request #10 from giantswarm/upgrade-to-v2.11.2...'
-      sha: 490c538e555c3084c2e9bdc0a26b3c929b2ac97f
+      commitTitle: ship v2.17.1 KEDA chart (#755)...
+      sha: cd8a958e9237c307a1adfd3f1e1937ff0dfeaed6
+      tags:
+      - v2.17.1
     path: keda
   path: helm
 kind: LockConfig

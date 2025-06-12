@@ -1,19 +1,27 @@
-annotations:
-  application.giantswarm.io/team: turtles
-  ui.giantswarm.io/logo: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
 apiVersion: v2
 name: keda
 description: Event-based autoscaler for workloads on Kubernetes
+
 # Specify the Kubernetes version range that we support.
 # We allow pre-release versions for cloud-specific Kubernetes versions such as  v1.21.5-gke.1302 or v1.18.9-eks-d1db3c
-kubeVersion: ">=v1.25.0-0"
+kubeVersion: ">=v1.23.0-0"
+
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
-version: 1.0.0
+version: 2.17.1
+
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
-appVersion: 2.11.2
-home: https://github.com/giantswarm/keda-app
+appVersion: 2.17.1
+
+home: https://github.com/kedacore/keda
 icon: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
 sources:
   - https://github.com/kedacore/keda
+maintainers:
+  - name: Jorge Turrado
+    email: jorge_turrado@hotmail.es
+  - name: Zbynek Roubalik
+    email: zbynek@kedify.io
+  - name: Jan Wozniak
+    email: jan@kedify.io

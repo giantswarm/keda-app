@@ -7,7 +7,7 @@ directories:
     git:
       url: https://github.com/giantswarm/keda-upstream
       ## We use version 2.11.x because of kubernetes compatibility reasons
-      ref: giantswarm/v2.11.x
+      ref: v2.17.1
       depth: 1
     newRootPath: keda
     ignorePaths:
