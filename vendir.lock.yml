@@ -2,8 +2,8 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'Merge pull request #10 from giantswarm/upgrade-to-v2.11.2...'
-      sha: 490c538e555c3084c2e9bdc0a26b3c929b2ac97f
+      commitTitle: Giant Swarm changes.
+      sha: 62e48fa37e45334693530ecf1a3d8de3b0346715
     path: keda
   path: helm
 kind: LockConfig
