@@ -134,6 +134,9 @@
         "customManagedBy": {
             "type": "string"
         },
+        "enableServiceLinks": {
+            "type": "boolean"
+        },
         "env": {
             "type": "array"
         },
@@ -579,6 +582,9 @@
                                 },
                                 "secret": {
                                     "type": "boolean"
+                                },
+                                "serviceAccountTokenCreationRoles": {
+                                    "type": "array"
                                 }
                             }
                         }
@@ -1662,6 +1668,9 @@
                     "type": "integer"
                 },
                 "revisionHistoryLimit": {
+                    "type": "integer"
+                },
+                "timeoutSeconds": {
                     "type": "integer"
                 },
                 "useHostNetwork": {

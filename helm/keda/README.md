@@ -21,7 +21,7 @@ helm repo add kedacore https://kedacore.github.io/charts
 helm repo update
 
 kubectl create namespace keda
-helm install keda kedacore/keda --namespace keda --version 2.15.1
+helm install keda kedacore/keda --namespace keda --version 2.17.1
 ```
 
 ## Introduction
@@ -36,7 +36,7 @@ To install the chart with the release name `keda`:
 
 ```console
 $ kubectl create namespace keda
-$ helm install keda kedacore/keda --namespace keda --version 2.0.0
+$ helm install keda kedacore/keda --namespace keda --version 2.17.1
 ```
 
 ## Uninstalling the Chart
@@ -81,6 +81,7 @@ their default values.
 | `crds.additionalAnnotations` | object | `{}` | Custom annotations specifically for CRDs |
 | `crds.install` | bool | `true` | Defines whether the KEDA CRDs have to be installed or not. |
 | `customManagedBy` | string | `""` | When specified, each rendered resource will have `app.kubernetes.io/managed-by: ${this}` label on it. Useful, when using only helm template with some other solution. |
+| `enableServiceLinks` | bool | `true` | Enable service links in pods. Although enabled, mirroring k8s default, it is highly recommended to disable, due to its legacy status [Legacy container links](https://docs.docker.com/engine/network/links/) |
 | `env` | list | `[]` | Additional environment variables that will be passed onto all KEDA components |
 | `extraObjects` | list | `[]` | Array of extra K8s manifests to deploy |
 | `global.image.registry` | string | `"gsoci.azurecr.io"` | Global image registry of KEDA components |
@@ -141,6 +142,7 @@ their default values.
 | `operator.revisionHistoryLimit` | int | `10` | ReplicaSets for this Deployment you want to retain (Default: 10) |
 | `permissions.operator.restrict.namesAllowList` | list | `[]` | Array of strings denoting what secrets the KEDA operator will be able to read, this takes into account also the configured `watchNamespace`. the default is an empty array -> no restriction on the secret name |
 | `permissions.operator.restrict.secret` | bool | `false` | Restrict Secret Access for KEDA operator if true, KEDA operator will be able to read only secrets in {{ .Release.Namespace }} namespace |
+| `permissions.operator.restrict.serviceAccountTokenCreationRoles` | list | `[]` | Creates roles and rolebindings from namespaced service accounts in the array which allow the KEDA operator to request service account tokens for use with the boundServiceAccountToken trigger source. If the namespace does not exist, this will cause the helm chart installation to fail. |
 | `podAnnotations.keda` | object | `{}` | Pod annotations for KEDA operator |
 | `podDisruptionBudget.operator` | object | `{}` | Capability to configure [Pod Disruption Budget] |
 | `podLabels.keda` | object | `{}` | Pod labels for KEDA operator |
@@ -220,6 +222,7 @@ their default values.
 | `prometheus.metricServer.podMonitor.scrapeTimeout` | string | `""` | Scraping timeout for metric server using podMonitor crd (prometheus operator) |
 | `prometheus.metricServer.port` | int | `8080` | HTTP port used for exposing metrics server prometheus metrics |
 | `prometheus.metricServer.portName` | string | `"metrics"` | HTTP port name for exposing metrics server prometheus metrics |
+| `prometheus.metricServer.serviceMonitor` | object | `{"additionalLabels":{},"enabled":true,"interval":"","jobLabel":"","metricRelabelings":[],"podTargetLabels":[],"port":"metrics","relabelings":[{"replacement":"keda","targetLabel":"app"}],"relabellings":[],"scheme":"http","scrapeTimeout":"","targetLabels":[],"targetPort":"","tlsConfig":{}}` | App Protocol for service when scraping metrics endpoint appProtocol: http |
 | `prometheus.metricServer.serviceMonitor.additionalLabels` | object | `{}` | Additional labels to add for metric server using ServiceMonitor crd (prometheus operator) |
 | `prometheus.metricServer.serviceMonitor.enabled` | bool | `true` | Enables ServiceMonitor creation for the Prometheus Operator |
 | `prometheus.metricServer.serviceMonitor.interval` | string | `""` | Interval at which metrics should be scraped If not specified Prometheus’ global scrape interval is used. |
@@ -247,6 +250,7 @@ their default values.
 | `prometheus.operator.prometheusRules.alerts` | list | `[]` | Additional alerts to add for KEDA Operator using prometheusRules crd (prometheus operator) |
 | `prometheus.operator.prometheusRules.enabled` | bool | `false` | Enables PrometheusRules creation for the Prometheus Operator |
 | `prometheus.operator.prometheusRules.namespace` | string | `""` | Scraping namespace for KEDA Operator using prometheusRules crd (prometheus operator) |
+| `prometheus.operator.serviceMonitor` | object | `{"additionalLabels":{},"enabled":true,"interval":"","jobLabel":"","metricRelabelings":[],"podTargetLabels":[],"port":"metrics","relabelings":[{"replacement":"keda","targetLabel":"app"}],"relabellings":[],"scheme":"http","scrapeTimeout":"","targetLabels":[],"targetPort":"","tlsConfig":{}}` | App Protocol for service when scraping metrics endpoint appProtocol: http |
 | `prometheus.operator.serviceMonitor.additionalLabels` | object | `{}` | Additional labels to add for metric server using ServiceMonitor crd (prometheus operator) |
 | `prometheus.operator.serviceMonitor.enabled` | bool | `true` | Enables ServiceMonitor creation for the Prometheus Operator |
 | `prometheus.operator.serviceMonitor.interval` | string | `""` | Interval at which metrics should be scraped If not specified Prometheus’ global scrape interval is used. |
@@ -267,6 +271,7 @@ their default values.
 | `prometheus.webhooks.prometheusRules.alerts` | list | `[]` | Additional alerts to add for KEDA admission webhooks using prometheusRules crd (prometheus operator) |
 | `prometheus.webhooks.prometheusRules.enabled` | bool | `false` | Enables PrometheusRules creation for the Prometheus Operator |
 | `prometheus.webhooks.prometheusRules.namespace` | string | `""` | Scraping namespace for KEDA admission webhooks using prometheusRules crd (prometheus operator) |
+| `prometheus.webhooks.serviceMonitor` | object | `{"additionalLabels":{},"enabled":true,"interval":"","jobLabel":"","metricRelabelings":[],"podTargetLabels":[],"port":"metrics","relabelings":[{"replacement":"keda","targetLabel":"app"}],"relabellings":[],"scheme":"http","scrapeTimeout":"","targetLabels":[],"targetPort":"","tlsConfig":{}}` | App Protocol for service when scraping metrics endpoint appProtocol: http |
 | `prometheus.webhooks.serviceMonitor.additionalLabels` | object | `{}` | Additional labels to add for metric server using ServiceMonitor crd (prometheus operator) |
 | `prometheus.webhooks.serviceMonitor.enabled` | bool | `true` | Enables ServiceMonitor creation for the Prometheus webhooks |
 | `prometheus.webhooks.serviceMonitor.interval` | string | `""` | Interval at which metrics should be scraped If not specified Prometheus’ global scrape interval is used. |
@@ -327,6 +332,7 @@ their default values.
 | `webhooks.readinessProbe` | object | `{"failureThreshold":3,"initialDelaySeconds":20,"periodSeconds":3,"successThreshold":1,"timeoutSeconds":1}` | Readiness probes for admission webhooks ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes)) |
 | `webhooks.replicaCount` | int | `1` | Capability to configure the number of replicas for KEDA admission webhooks |
 | `webhooks.revisionHistoryLimit` | int | `10` | ReplicaSets for this Deployment you want to retain (Default: 10) |
+| `webhooks.timeoutSeconds` | int | `10` | Timeout in seconds for KEDA admission webhooks |
 | `webhooks.useHostNetwork` | bool | `false` | Enable webhook to use host network, this is required on EKS with custom CNI |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to

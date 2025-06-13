@@ -29,11 +29,12 @@ rules:
   resources:
   - events
   verbs:
-  - '*'
+  - create
+  - patch
 {{- if not .Values.permissions.operator.restrict.secret }}
 - apiGroups:
   - ""
-  resources:    
+  resources:
   - secrets
   verbs:
   - list
@@ -66,7 +67,7 @@ rules:
   - {{ .kind | quote }}
   verbs:
   - get
-  {{- end }}   
+  {{- end }}
 {{- end }}
 - apiGroups:
   - apps
@@ -93,20 +94,38 @@ rules:
   resources:
   - horizontalpodautoscalers
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - batch
   resources:
   - jobs
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - eventing.keda.sh
   resources:
   - cloudeventsources
   - cloudeventsources/status
+  - clustercloudeventsources
+  - clustercloudeventsources/status
   verbs:
-  - '*'
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - keda.sh
   resources:
@@ -119,7 +138,11 @@ rules:
   - triggerauthentications
   - triggerauthentications/status
   verbs:
-  - '*'
+  - get
+  - list
+  - patch
+  - update
+  - watch
 {{- if .Values.rbac.aggregateToDefaultRoles }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -148,6 +171,7 @@ rules:
   - eventing.keda.sh
   resources:
   - cloudeventsources
+  - clustercloudeventsources
   verbs:
   - create
   - delete
@@ -180,9 +204,57 @@ rules:
   - eventing.keda.sh
   resources:
   - cloudeventsources
+  - clustercloudeventsources
   verbs:
   - get
   - list
   - watch
 {{- end -}}
+{{- if .Values.permissions.operator.restrict.serviceAccountTokenCreationRoles }}
+{{- range $r := .Values.permissions.operator.restrict.serviceAccountTokenCreationRoles }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  {{- with $.Values.additionalAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    app.kubernetes.io/name: {{ $.Values.operator.name }}
+    {{- include "keda.labels" $ | indent 4 }}
+  name: {{ $.Values.operator.name }}-token-creator-{{ $r.name }}
+  namespace: {{ $r.namespace }}
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - serviceaccounts/token
+  verbs:
+  - create
+  resourceNames:
+  - {{ $r.name }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  {{- with $.Values.additionalAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    app.kubernetes.io/name: {{ $.Values.operator.name }}
+    {{- include "keda.labels" $ | indent 4 }}
+  name: {{ $.Values.operator.name }}-token-creator-{{ $r.name }}
+  namespace: {{ $r.namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ $.Values.operator.name }}-token-creator-{{ $r.name }}
+subjects:
+- kind: ServiceAccount
+  name: {{ $.Values.operator.name }}
+  namespace: {{ $.Release.Namespace }}
+{{- end }}
+{{- end }}
 {{- end -}}
