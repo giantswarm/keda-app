@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Push keda to all app collections and to the control-plane-catalog.
+
 ## [3.0.0] - 2025-06-16
 
 ### Changed
