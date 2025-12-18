@@ -498,6 +498,12 @@
                 "disableCompression": {
                     "type": "boolean"
                 },
+                "kubeAPIBurst": {
+                    "type": "integer"
+                },
+                "kubeAPIQPS": {
+                    "type": "number"
+                },
                 "extraContainers": {
                     "type": "array"
                 },
@@ -1640,6 +1646,12 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "kubeAPIBurst": {
+                    "type": "integer"
+                },
+                "kubeAPIQPS": {
+                    "type": "number"
                 },
                 "port": {
                     "type": "string"
