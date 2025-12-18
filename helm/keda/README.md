@@ -135,6 +135,8 @@ their default values.
 | `operator.disableCompression` | bool | `true` | Disable response compression for k8s restAPI in client-go. Disabling compression simply means that turns off the process of making data smaller for K8s restAPI in client-go for faster transmission. |
 | `operator.extraContainers` | list | `[]` | Additional containers to run as part of the operator deployment |
 | `operator.extraInitContainers` | list | `[]` | Additional init containers to run as part of the operator deployment |
+| `operator.kubeAPIBurst` | int | `30` | K8s client Burst throttling for the KEDA operator |
+| `operator.kubeAPIQPS` | float | `20.0` | K8s client QPS (Queries Per Second) throttling for the KEDA operator |
 | `operator.livenessProbe` | object | `{"failureThreshold":3,"initialDelaySeconds":25,"periodSeconds":10,"successThreshold":1,"timeoutSeconds":1}` | Liveness probes for operator ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)) |
 | `operator.name` | string | `"keda-operator"` | Name of the KEDA operator |
 | `operator.readinessProbe` | object | `{"failureThreshold":3,"initialDelaySeconds":20,"periodSeconds":3,"successThreshold":1,"timeoutSeconds":1}` | Readiness probes for operator ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes)) |
@@ -326,6 +328,8 @@ their default values.
 | `webhooks.enabled` | bool | `true` |  |
 | `webhooks.failurePolicy` | string | `"Ignore"` | [Failure policy](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#failure-policy) to use with KEDA admission webhooks |
 | `webhooks.healthProbePort` | int | `8081` | Port number to use for KEDA admission webhooks health probe |
+| `webhooks.kubeAPIBurst` | int | `30` | K8s client Burst throttling for the KEDA admission webhooks |
+| `webhooks.kubeAPIQPS` | float | `20.0` | K8s client QPS (Queries Per Second) throttling for the KEDA admission webhooks |
 | `webhooks.livenessProbe` | object | `{"failureThreshold":3,"initialDelaySeconds":25,"periodSeconds":10,"successThreshold":1,"timeoutSeconds":1}` | Liveness probes for admission webhooks ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)) |
 | `webhooks.name` | string | `"keda-admission-webhooks"` | Name of the KEDA admission webhooks |
 | `webhooks.port` | string | `""` | Port number to use for KEDA admission webhooks. Default is 9443. |
