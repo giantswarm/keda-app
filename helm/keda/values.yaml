@@ -6,6 +6,18 @@ global:
   image:
     # -- Global image registry of KEDA components
     registry: gsoci.azurecr.io
+  # -- DNS config for KEDA components
+  dnsConfig: {}
+  # nameservers:
+  #   - 1.2.3.4
+  # searches:
+  #   - ns1.svc.cluster-domain.example
+  #   - my.dns.search.suffix
+  # options:
+  #   - name: ndots
+  #     value: "1"
+  #   - name: attempts
+  #     value: "3"
 
 image:
   keda:
@@ -94,6 +106,17 @@ operator:
   # --Disable response compression for k8s restAPI in client-go.
   # Disabling compression simply means that turns off the process of making data smaller for K8s restAPI in client-go for faster transmission.
   disableCompression: true
+  # -- DNS config for KEDA operator pod
+  dnsConfig: {}
+  # use ClusterFirstWithHostNet if `useHostNetwork: true` https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy
+  # -- Defined the DNS policy for the operator
+  dnsPolicy: ClusterFirst
+  # -- Enable operator to use host network
+  useHostNetwork: false
+  # -- K8s client QPS (Queries Per Second) throttling for the KEDA operator
+  kubeAPIQPS: 20.0
+  # -- K8s client Burst throttling for the KEDA operator
+  kubeAPIBurst: 30
   # -- [Affinity] for pod scheduling for KEDA operator. Takes precedence over the `affinity` field
   affinity:
     podAntiAffinity:
@@ -207,6 +230,10 @@ webhooks:
   useHostNetwork: false
   # -- Name of the KEDA admission webhooks
   name: keda-admission-webhooks
+  # -- K8s client QPS (Queries Per Second) throttling for the KEDA admission webhooks
+  kubeAPIQPS: 20.0
+  # -- K8s client Burst throttling for the KEDA admission webhooks
+  kubeAPIBurst: 30
   # -- ReplicaSets for this Deployment you want to retain (Default: 10)
   revisionHistoryLimit: 10
   # -- Capability to configure the number of replicas for KEDA admission webhooks
@@ -527,6 +554,8 @@ resources:
 nodeSelector: {}
 # -- Tolerations for pod scheduling ([docs](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/))
 tolerations: []
+# -- HostAliases for pod networking ([docs](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/))
+hostAliases: []
 
 topologySpreadConstraints:
   # -- [Pod Topology Constraints] of KEDA operator pod
