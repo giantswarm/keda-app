@@ -107,7 +107,15 @@
                     "type": "string"
                 },
                 "operator": {
-                    "type": "null"
+                    "type": "object",
+                    "properties": {
+                        "caDirs": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 },
                 "secretName": {
                     "type": "string"
@@ -157,6 +165,9 @@
         "global": {
             "type": "object",
             "properties": {
+                "dnsConfig": {
+                    "type": "object"
+                },
                 "image": {
                     "type": "object",
                     "properties": {
@@ -172,6 +183,9 @@
         },
         "hashiCorpVaultTLS": {
             "type": "string"
+        },
+        "hostAliases": {
+            "type": "array"
         },
         "http": {
             "type": "object",
@@ -344,6 +358,9 @@
                 "disableCompression": {
                     "type": "boolean"
                 },
+                "dnsConfig": {
+                    "type": "object"
+                },
                 "dnsPolicy": {
                     "type": "string"
                 },
@@ -498,11 +515,23 @@
                 "disableCompression": {
                     "type": "boolean"
                 },
+                "dnsConfig": {
+                    "type": "object"
+                },
+                "dnsPolicy": {
+                    "type": "string"
+                },
                 "extraContainers": {
                     "type": "array"
                 },
                 "extraInitContainers": {
                     "type": "array"
+                },
+                "kubeAPIBurst": {
+                    "type": "integer"
+                },
+                "kubeAPIQPS": {
+                    "type": "number"
                 },
                 "livenessProbe": {
                     "type": "object",
@@ -552,6 +581,9 @@
                 },
                 "revisionHistoryLimit": {
                     "type": "integer"
+                },
+                "useHostNetwork": {
+                    "type": "boolean"
                 }
             }
         },
@@ -1609,6 +1641,12 @@
                         }
                     }
                 },
+                "dnsConfig": {
+                    "type": "object"
+                },
+                "dnsPolicy": {
+                    "type": "string"
+                },
                 "enabled": {
                     "type": "boolean"
                 },
@@ -1617,6 +1655,12 @@
                 },
                 "healthProbePort": {
                     "type": "integer"
+                },
+                "kubeAPIBurst": {
+                    "type": "integer"
+                },
+                "kubeAPIQPS": {
+                    "type": "number"
                 },
                 "livenessProbe": {
                     "type": "object",
