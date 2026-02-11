@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Upgrade app to version 2.18.2 to support kubernetes 1.30 to 1.32.
-- Upgrade chart to upstream version 2.18.2.
+- Upgrade app to version 2.18.3 to support kubernetes 1.31 to 1.33.
+- Upgrade chart to upstream version 2.18.3.
 
 ## [3.1.1] - 2026-01-30
 
