@@ -30,10 +30,10 @@ Get information about the deployed ScaledObjects:
 Get details about a deployed ScaledObject:
   kubectl describe scaledobject <scaled-object-name> [--namespace <namespace>]
 
-Get information about the deployed ScaledObjects:
+Get information about the deployed TriggerAuthentications:
   kubectl get triggerauthentication [--namespace <namespace>]
 
-Get details about a deployed ScaledObject:
+Get details about a deployed TriggerAuthentication:
   kubectl describe triggerauthentication <trigger-authentication-name> [--namespace <namespace>]
 
 Get an overview of the Horizontal Pod Autoscalers (HPA) that KEDA is using behind the scenes:
@@ -53,9 +53,9 @@ WARNING - prometheus.webhooks.serviceMonitor.relabellings is deprecated, please 
 -------------------------------------------------------------------------------------
 {{- end }}
 
-{{- if lt .Capabilities.KubeVersion.Minor "28" }}
+{{- if lt .Capabilities.KubeVersion.Minor "31" }}
 -------------------------------------------------------------------------------------
-WARNING - Running on unsupported Kubernetes version "1.{{.Capabilities.KubeVersion.Minor}}". KEDA 2.13 is supported and tested on Kubernetes "1.28" or higher. See https://keda.sh/docs/latest/operate/cluster/ for details.
+WARNING - Running on unsupported Kubernetes version "1.{{.Capabilities.KubeVersion.Minor}}". KEDA 2.18 is supported and tested on Kubernetes "1.31" or higher. See https://keda.sh/docs/latest/operate/cluster/ for details.
 -------------------------------------------------------------------------------------
 {{- end }}
 
