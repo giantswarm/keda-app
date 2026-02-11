@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2026-02-11
+
 ### Changed
 
 - Upgrade app to version 2.18.3 to support kubernetes 1.31 to 1.33.
@@ -74,7 +76,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Create first app iteration.
 
-[Unreleased]: https://github.com/giantswarm/keda-app/compare/v3.1.1...HEAD
+[Unreleased]: https://github.com/giantswarm/keda-app/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/giantswarm/keda-app/compare/v3.1.1...v4.0.0
 [3.1.1]: https://github.com/giantswarm/keda-app/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/giantswarm/keda-app/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/giantswarm/keda-app/compare/v2.0.0...v3.0.0
