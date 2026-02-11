@@ -80,6 +80,8 @@ spec:
           args:
           - "--leader-elect"
           - "--disable-compression={{ .Values.operator.disableCompression}}"
+          - "--kube-api-qps={{ .Values.operator.kubeAPIQPS }}"
+          - "--kube-api-burst={{ .Values.operator.kubeAPIBurst }}"
           - "--zap-log-level={{ .Values.logging.operator.level }}"
           - "--zap-encoder={{ .Values.logging.operator.format }}"
           - "--zap-time-encoding={{ .Values.logging.operator.timeEncoding }}"
@@ -241,5 +243,16 @@ spec:
       {{- end }}
       {{- with .Values.tolerations }}
       tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- $dnsConfig := .Values.operator.dnsConfig | default .Values.global.dnsConfig }}
+      {{- if $dnsConfig }}
+      dnsConfig:
+      {{- toYaml $dnsConfig | nindent 8 }}
+      {{- end }}
+      dnsPolicy: {{ .Values.operator.dnsPolicy }}
+      hostNetwork: {{ .Values.operator.useHostNetwork }}
+      {{- with .Values.hostAliases }}
+      hostAliases:
         {{- toYaml . | nindent 8 }}
       {{- end }}
