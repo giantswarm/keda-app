@@ -3,7 +3,7 @@ directories:
 - contents:
   - git:
       commitTitle: Giant Swarm changes.
-      sha: a52ce1980ec12e8109e84c2f0e1c4235cd74eb5a
+      sha: dfee47bd2bb68c003a8eaf6e3d3802962071d844
     path: keda
   path: helm
 kind: LockConfig
