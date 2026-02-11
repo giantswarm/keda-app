@@ -1,5 +1,5 @@
 annotations:
-  application.giantswarm.io/team: tenet
+  application.giantswarm.io/team: atlas
   ui.giantswarm.io/logo: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
 apiVersion: v2
 name: keda
@@ -11,18 +11,15 @@ kubeVersion: ">=v1.23.0-0"
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
-version: 4.0.0
+version: 2.18.3
+
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
-appVersion: 2.18.2
+appVersion: 2.18.3
 home: https://github.com/kedacore/keda
 icon: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
 sources:
   - https://github.com/kedacore/keda
 maintainers:
-  - name: Jorge Turrado
-    email: jorge_turrado@hotmail.es
-  - name: Zbynek Roubalik
-    email: zbynek@kedify.io
-  - name: Jan Wozniak
-    email: jan@kedify.io
+  - name: giantswarm/team-atlas
+    email: team-atlas@giantswarm.io
