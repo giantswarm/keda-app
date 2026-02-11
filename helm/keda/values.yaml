@@ -92,6 +92,14 @@ networkPolicy:
   cilium:
     operator:
       extraEgressRules: []
+  # -- Allow use of extra egress rules for kubernetes network policies
+  kubernetes:
+    operator:
+      extraEgressRules: []
+    metricsServer:
+      extraEgressRules: []
+    webhooks:
+      extraEgressRules: []
 
 operator:
   # -- Name of the KEDA operator
@@ -625,7 +633,6 @@ profiling:
     enabled: false
     # -- Expose profiling on a specific port
     port: 8084
-
 
 ## Extra KEDA Operator and Metrics Adapter container arguments
 extraArgs:
