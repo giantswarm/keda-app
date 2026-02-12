@@ -875,9 +875,9 @@ certificates:
     # -- Enables Cert-manager for certificate management
     enabled: true
     # -- Certificate duration
-    duration: 8760h0m0s # 1 year
+    duration: 8760h0m0s #  1 year
     # -- Certificate renewal time before expiration
-    renewBefore: 5840h0m0s # 8 months
+    renewBefore: 5840h0m0s #  8 months
     # -- Generates a self-signed CA with Cert-manager.
     # If generateCA is false, the secret with the CA
     # has to be annotated with `cert-manager.io/allow-direct-injection: "true"`
