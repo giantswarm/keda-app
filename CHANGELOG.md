@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [5.0.2] - 2026-02-16
 
+### Added
+
+- Added Backstage audience annotations.
+
 ## [5.0.1] - 2026-02-16
 
 ### Changed
