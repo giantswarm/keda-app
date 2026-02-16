@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.2] - 2026-02-16
+
 ## [5.0.1] - 2026-02-16
 
 ### Changed
@@ -89,7 +91,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Create first app iteration.
 
-[Unreleased]: https://github.com/giantswarm/keda-app/compare/v5.0.1...HEAD
+[Unreleased]: https://github.com/giantswarm/keda-app/compare/v5.0.2...HEAD
+[5.0.2]: https://github.com/giantswarm/keda-app/compare/v5.0.1...v5.0.2
 [5.0.1]: https://github.com/giantswarm/keda-app/compare/v5.0.0...v5.0.1
 [5.0.0]: https://github.com/giantswarm/keda-app/compare/v4.0.0...v5.0.0
 [4.0.0]: https://github.com/giantswarm/keda-app/compare/v3.1.1...v4.0.0
