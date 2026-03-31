@@ -2,7 +2,6 @@ annotations:
   io.giantswarm.application.team: atlas
   io.giantswarm.application.audience: all
   io.giantswarm.application.managed: "true"
-  ui.giantswarm.io/logo: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
 apiVersion: v2
 name: keda
 description: Event-based autoscaler for workloads on Kubernetes
@@ -16,7 +15,7 @@ version: 5.0.2
 # incremented each time you make changes to the application.
 appVersion: 2.19.0
 home: https://github.com/kedacore/keda
-icon: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
+icon: https://s.giantswarm.io/app-icons/keda/1/light.svg
 sources:
   - https://github.com/kedacore/keda
 maintainers:
