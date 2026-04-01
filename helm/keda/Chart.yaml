@@ -15,7 +15,7 @@ version: 5.0.2
 # incremented each time you make changes to the application.
 appVersion: 2.19.0
 home: https://github.com/kedacore/keda
-icon: https://s.giantswarm.io/app-icons/keda/1/light.svg
+icon: https://s.giantswarm.io/app-icons/keda/2/light.svg
 sources:
   - https://github.com/kedacore/keda
 maintainers:
