@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.4] - 2026-06-15
+
 ### Changed
 
 - Fix ABS config to not override AppVersion in Chart.yaml
@@ -105,7 +107,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Create first app iteration.
 
-[Unreleased]: https://github.com/giantswarm/keda-app/compare/v5.0.3...HEAD
+[Unreleased]: https://github.com/giantswarm/keda-app/compare/v5.0.4...HEAD
+[5.0.4]: https://github.com/giantswarm/keda-app/compare/v5.0.3...v5.0.4
 [5.0.3]: https://github.com/giantswarm/keda-app/compare/v5.0.2...v5.0.3
 [5.0.2]: https://github.com/giantswarm/keda-app/compare/v5.0.1...v5.0.2
 [5.0.1]: https://github.com/giantswarm/keda-app/compare/v5.0.0...v5.0.1
